@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import bitbotLogo from './images/bitbot_logo.png';
 
-
 interface Week {
   title: string;
   content: string[];
@@ -52,30 +51,10 @@ export default function Home() {
 
     const handleSignUp = async (event: { preventDefault: () => void; }) => {
       event.preventDefault(); 
-    
-      try {
-        const response = await fetch('/send-email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            email: formData.email,  
-            message: `Hello ${formData.parentName}, thank you for signing up, ${formData.childName}!`
-          })
-        });
-    
-        if (response.ok) {
-          alert('Email sent successfully!');
-        } else {
-          const errorData = await response.json();
-          console.error('Failed to send email:', errorData);
-          alert(`Failed to send email. Error: ${errorData.message || 'Unknown error'}`);
-        }
-      } catch (error) {
-        console.error('Error sending email:', error);
-        alert(`An error occurred while sending the email`);
-      }
+
+    /* THIS HAS TO BE REWRITTEN / MAYBE EVEN DONT SEND EMAILS JUST REDIRECT TO MAIN WEBSITE AND ASK THE USER TO MAKE A PASSWORD / USERNAME
+    maybe something like "Hello, user! Are you ready to learn? Enter a username and password to begin..."
+      */
     };
   
   const scrollToSection = (id: string) => {
