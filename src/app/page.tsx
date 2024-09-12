@@ -1,8 +1,6 @@
 "use client";
-
-import Image from "next/image";
 import { useState, useEffect } from "react";
-import bitbotLogo from './images/bitbot_logo.png';
+import Image from './images/bitbot_logo.png';
 
 interface Week {
   title: string;
@@ -33,29 +31,6 @@ export default function Home() {
     };
   }, []);
 
-
-    const [formData, setFormData] = useState({
-      parentName: '',
-      email: '',
-      phoneNumber: '',
-      childName: '',
-      childAge: '',
-    });
-  
-    const handleChange = (e: { target: { name: any; value: any; }; }) => {
-      setFormData({
-        ...formData,
-        [e.target.name]: e.target.value,
-      });
-    };
-
-    const handleSignUp = async (event: { preventDefault: () => void; }) => {
-      event.preventDefault(); 
-
-    /* THIS HAS TO BE REWRITTEN / MAYBE EVEN DONT SEND EMAILS JUST REDIRECT TO MAIN WEBSITE AND ASK THE USER TO MAKE A PASSWORD / USERNAME
-    maybe something like "Hello, user! Are you ready to learn? Enter a username and password to begin..."
-      */
-    };
   
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -159,46 +134,49 @@ export default function Home() {
           </a>
 
           <div className="flex space-x-4 items-center">
-            <a 
-              href="#"
-              className="text-l hover:text-blue-200 transition duration-300"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
-              onClick={(e) => {
-                e.preventDefault(); 
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-            >
-              About
-            </a>
+                  <a 
+                  href="#"
+                  className="text-xl font-medium hover:text-blue-200 transition duration-300"
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}>
+                  About
+                </a>
 
-            <a 
-              href="#curriculum" 
-              className="text-l hover:text-blue-200 transition duration-300"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
-              onClick={() => scrollToSection('curriculum')}
-            >
-              Curriculum
-            </a>
+                <a 
+                  href="#"
+                  className="text-xl font-medium hover:text-blue-200 transition duration-300"
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('curriculum');
+                  }}>
+                  Curriculum
+                </a>
 
-            <a 
-              href="#enroll" 
-              className="text-l bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-100 transition duration-300"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
-              onClick={() => scrollToSection('enroll')}
-            >
-              Enroll Now
-            </a>
+                <a 
+                  href="#"
+                  className="text-l bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-100 transition duration-300"
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
+                  onClick={(e) => {
+                    e.preventDefault();  
+                    // go to sign up page
+                    }}>
+                  Enroll Now
+                </a>
           </div>
         </div>
         </div>
       </header>
-
+      
       <main className={`flex-grow pt-24 pb-20 px-8 bg-gradient-to-b from-blue-100 to-purple-100 transition-opacity duration-1000`}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 transform transition-all duration-1000 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}">
           <h1 className="text-5xl font-bold mb-4 text-blue-800" style={{ fontFamily: 'Poppins, sans-serif' }}>Welcome to BitBots Academy!</h1>   
           <p className="text-xl mb-8 text-gray-600">Empowering kids aged 6-17 with AI-powered coding education</p>
-            <a href="#enroll" className="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-600 transition duration-300">
+            <a className="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-600 transition duration-300">
               Start Your Coding Journey
             </a>
           </div>
@@ -231,111 +209,42 @@ export default function Home() {
           </section>
 
           
-<section id="curriculum" className={`mb-16 text-center transform transition-all duration-1000 delay-700 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-  <h2 className="text-3xl font-semibold mb-6 text-blue-700"            style={{ fontFamily: 'Poppins, sans-serif' }}
-  >
-    Our 10-Week Python Adventure
-  </h2>
-  <p className="text-lg mb-8 text-gray-600">
-    A comprehensive journey from coding basics to advanced concepts and AI integration, tailored for ages 6-17.
-  </p>
-  <div className="space-y-4">
-    {weeks.map((week, index) => (
-      <div key={index} className="border border-blue-300 rounded-lg shadow-lg overflow-hidden">
-        <button
-          className="w-full text-left px-6 py-4 bg-blue-50 hover:bg-blue-100 transition-colors duration-300 flex justify-between items-center"
-          onClick={() => toggleWeek(index)}
-        >
-          <span className="text-lg font-semibold text-blue-600"            style={{ fontFamily: 'Poppins, sans-serif' }}
-          >{week.title}</span>
-          <span className="text-blue-500 text-xl">{openWeek === index ? '▲' : '▼'}</span>
-        </button>
-        {openWeek === index && (
-          <div className="bg-white p-6 border-t border-blue-200">
-            <ul className="list-disc list-inside text-gray-700 text-left space-y-2">
-              {week.content.map((item, itemIndex) => (
-                <li key={itemIndex} className="text-lg">{item}</li>
-              ))}
-            </ul>
+        <section id="curriculum" className={`mb-16 text-center transform transition-all duration-1000 delay-700 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <h2 className="text-3xl font-semibold mb-6 text-blue-700"            style={{ fontFamily: 'Poppins, sans-serif' }}
+          >
+            Our 10-Week Python Adventure
+          </h2>
+          <p className="text-lg mb-8 text-gray-600">
+            A comprehensive journey from coding basics to advanced concepts and AI integration, tailored for ages 6-17.
+          </p>
+          <div className="space-y-4">
+            {weeks.map((week, index) => (
+              <div key={index} className="border border-blue-300 rounded-lg shadow-lg overflow-hidden">
+                <button
+                  className="w-full text-left px-6 py-4 bg-blue-50 hover:bg-blue-100 transition-colors duration-300 flex justify-between items-center"
+                  onClick={() => toggleWeek(index)}
+                >
+                  <span className="text-lg font-semibold text-blue-600"            style={{ fontFamily: 'Poppins, sans-serif' }}
+                  >{week.title}</span>
+                  <span className="text-blue-500 text-xl">{openWeek === index ? '▲' : '▼'}</span>
+                </button>
+                {openWeek === index && (
+                  <div className="bg-white p-6 border-t border-blue-200">
+                    <ul className="list-disc list-inside text-gray-700 text-left space-y-2">
+                      {week.content.map((item, itemIndex) => (
+                        <li key={itemIndex} className="text-lg">{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-        )}
-      </div>
-    ))}
-  </div>
-  <p className="text-lg mt-8 text-gray-600">
-    Each week includes hands-on projects, coding challenges, and interactive lessons to reinforce learning and spark creativity.
-  </p>
-</section>
-          <section id="enroll" className="w-full max-w-md mx-auto text-center transform transition-all duration-1000 delay-900 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}">
-            <h2 className="text-3xl font-semibold mb-4 text-blue-700"            style={{ fontFamily: 'Poppins, sans-serif' }}
-            >Enroll Now</h2>
-            <div className="flex justify-center mb-6">
-              <Image
-                src={bitbotLogo}
-                alt="BitBots Academy Logo"
-                width={250}
-                height={20}
-                priority
-                className="mx-auto"
-              />
-            </div>
-            <p className="text-lg mb-6 text-gray-700">
-              Start your child&apos;s coding adventure today!
-            </p>
-          <form>
-            <input
-              type="text"
-              name="parentName"
-              placeholder="Parent's Name"
-              className="w-full px-4 py-2 rounded border"
-              style={{color: 'black'}}
-              value={formData.parentName}
-              onChange={handleChange}
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              className="w-full px-4 py-2 rounded border"
-              style={{color: 'black'}}
-              value={formData.email}
-              onChange={handleChange}
-            />
-            <input
-              type="tel"
-              name="phoneNumber"
-              placeholder="Phone Number"
-              className="w-full px-4 py-2 rounded border"
-              style={{color: 'black'}}
-              value={formData.phoneNumber}
-              onChange={handleChange}
-            />
-            <input
-              type="text"
-              name="childName"
-              placeholder="Child's Name"
-              className="w-full px-4 py-2 rounded border"
-              style={{color: 'black'}}
-              value={formData.childName}
-              onChange={handleChange}
-            />
-            <input
-              type="number"
-              name="childAge"
-              placeholder="Child's Age"
-              className="w-full px-4 py-2 rounded border"
-              style={{color: 'black'}}
-              value={formData.childAge}
-              onChange={handleChange}
-            />
-            <button 
-              type="submit" 
-              className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-300" 
-              onClick={handleSignUp}>
-              Sign Up
-            </button>
-          </form>
-          </section>
+          <p className="text-lg mt-8 text-gray-600">
+            Each week includes hands-on projects, coding challenges, and interactive lessons to reinforce learning and spark creativity.
+          </p>
+        </section>
+
         </div>
       </main>
 
