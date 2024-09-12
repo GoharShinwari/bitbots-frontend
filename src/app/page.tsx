@@ -5,6 +5,7 @@ import Link from 'next/link';
 interface Week {
   title: string;
   content: string[];
+  emoji: string;
 }
 
 export default function Home() {
@@ -45,76 +46,57 @@ export default function Home() {
 
   const weeks: Week[] = [
     {
-      "title": "Week 1: Python Fundamentals",
-      "content": [
-        "Introduction to programming concepts",
-        "Setting up Python environment",
-        "Variables and data types",
-        "Basic input/output operations",
-        "Simple math operations"
+      title: "Week 1: Welcome to Python's Playground",
+      emoji: "🚀",
+      content: [
+        "Discover the magic of programming with Python",
+        "Set up your very own Python coding space",
+        "Learn about variables, Python's storage boxes",
+        "Write your first Python program and watch it run",
+        "Play with numbers and make Python do math for you"
       ]
     },
     {
-      "title": "Week 2: Control Structures",
-      "content": [
-        "Conditional statements (if, else, elif)",
-        "Loops (for and while)",
-        "Basic error handling",
-        "Simple game development"
+      title: "Week 2: Teaching Python to Think and Repeat",
+      emoji: "🔁",
+      content: [
+        "Use if statements to help Python make choices",
+        "Create loops to make Python repeat cool stuff",
+        "Learn to fix coding oopsies and become a bug hunter",
+        "Build a fun quiz game to challenge your friends"
       ]
     },
     {
-      "title": "Week 3: Functions and Modules",
-      "content": [
-        "Creating and using functions",
-        "Parameters and return values",
-        "Importing and using modules",
-        "Introduction to Python libraries"
+      title: "Week 3: Python's Data Circus",
+      emoji: "🎪",
+      content: [
+        "Juggle multiple items with Python lists",
+        "Organize information in Python dictionaries",
+        "Play with text and make Python speak your language",
+        "Learn to save your work in files and load it back"
       ]
     },
     {
-      "title": "Week 4: Data Structures",
-      "content": [
-        "Lists and list comprehensions",
-        "Dictionaries and sets",
-        "Working with strings",
-        "File handling basics"
+      title: "Week 4: Unlocking Python's Toolbox",
+      emoji: "🧰",
+      content: [
+        "Make your own Python tools called functions",
+        "Send information to your functions and get answers back",
+        "Discover Python modules, pre-made toolkits for coders",
+        "Explore awesome Python libraries and their superpowers"
       ]
     },
     {
-      "title": "Week 5: Object-Oriented Programming",
-      "content": [
-        "Introduction to classes and objects",
-        "Creating methods and attributes",
-        "Inheritance and polymorphism"
+      title: "Week 5: Building Your Own Python Creations",
+      emoji: "🏗️",
+      content: [
+        "Create your own digital objects with classes",
+        "Give your objects cool abilities with methods",
+        "Learn about inheritance, the family tree of objects",
+        "Design a text adventure game with your new skills"
       ]
     },
-    {
-      "title": "Week 6: GUI Programming",
-      "content": [
-        "Introduction to Tkinter",
-        "Creating windows and widgets",
-        "Event handling",
-        "Building a simple GUI application"
-      ]
-    },
-    {
-      "title": "Week 7: Introduction to AI Concepts",
-      "content": [
-        "Basic AI and machine learning concepts",
-        "Introduction to natural language processing",
-        "Simple chatbot development"
-      ]
-    },
-    {
-      "title": "Week 8: Final Project",
-      "content": [
-        "Build a project incorporating key concepts learned (e.g., an AI-enhanced application or a game with a GUI)"
-      ]
-    }
   ];
-
-
   
   return (
     <div className="flex flex-col min-h-screen">
@@ -197,60 +179,62 @@ export default function Home() {
               Our comprehensive 8-week course integrates advanced AI technology with interactive lessons, making coding both enjoyable and accessible.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-2 text-blue-600"            style={{ fontFamily: 'Poppins, sans-serif' }}
-                >AI-Powered Learning</h3>
-                  <p className="text-gray-600">Personalized instruction adapts to your child&apos;s pace and style</p>
-                  </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-2 text-blue-600"            style={{ fontFamily: 'Poppins, sans-serif' }}
-                >Age-Appropriate Content</h3>
-                <p className="text-gray-600">Tailored lessons for ages 6-17, ensuring the right challenge level</p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-2 text-blue-600"            style={{ fontFamily: 'Poppins, sans-serif' }}
-                >Real-World Projects</h3>
-                <p className="text-gray-600">Apply coding skills to exciting, practical projects</p>
-              </div>
+            <div className="bg-white p-6 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105">
+              <h3 className="text-xl font-semibold mb-2 text-blue-600" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                AI-Powered Learning
+              </h3>
+              <p className="text-gray-600">Personalized instruction adapts to your child&apos;s pace and style</p>
             </div>
+            <div className="bg-white p-6 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105">
+              <h3 className="text-xl font-semibold mb-2 text-blue-600" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                Age-Appropriate Content
+              </h3>
+              <p className="text-gray-600">Tailored lessons for ages 6-17, ensuring the right challenge level</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105">
+              <h3 className="text-xl font-semibold mb-2 text-blue-600" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                Real-World Projects
+              </h3>
+              <p className="text-gray-600">Apply coding skills to exciting, practical projects</p>
+            </div>
+          </div>
           </section>
 
-          
-<section id="curriculum" className={`mb-16 text-center transform transition-all duration-1000 delay-700 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-  <h2 className="text-3xl font-semibold mb-6 text-blue-700"            style={{ fontFamily: 'Poppins, sans-serif' }}
-  >
-    Our 10-Week Python Adventure
-  </h2>
-  <p className="text-lg mb-8 text-gray-600">
-    A comprehensive journey from coding basics to advanced concepts and AI integration, tailored for ages 6-17.
-  </p>
-  <div className="space-y-4">
-    {weeks.map((week, index) => (
-      <div key={index} className="border border-blue-300 rounded-lg shadow-lg overflow-hidden">
-        <button
-          className="w-full text-left px-6 py-4 bg-blue-50 hover:bg-blue-100 transition-colors duration-300 flex justify-between items-center"
-          onClick={() => toggleWeek(index)}
-        >
-          <span className="text-lg font-semibold text-blue-600"            style={{ fontFamily: 'Poppins, sans-serif' }}
-          >{week.title}</span>
-          <span className="text-blue-500 text-xl">{openWeek === index ? '▲' : '▼'}</span>
-        </button>
-        {openWeek === index && (
-          <div className="bg-white p-6 border-t border-blue-200">
-            <ul className="list-disc list-inside text-gray-700 text-left space-y-2">
-              {week.content.map((item, itemIndex) => (
-                <li key={itemIndex} className="text-lg">{item}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
-    ))}
-  </div>
-  <p className="text-lg mt-8 text-gray-600">
-    Each week includes hands-on projects, coding challenges, and interactive lessons to reinforce learning and spark creativity.
-  </p>
-</section>
+          <section id="curriculum" className={`mb-16 text-center transform transition-all duration-1000 delay-700 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <h2 className="text-3xl font-semibold mb-6 text-blue-700" style={{ fontFamily: 'Poppins, sans-serif' }}>
+          Your 5-Week Python Adventure
+        </h2>
+        <p className="text-lg mb-8 text-gray-600">
+          Join us on an exciting journey from coding basics to creating your own digital world, perfect for ages 6-17!
+        </p>
+        <div className="space-y-4">
+          {weeks.map((week, index) => (
+            <div key={index} className="border border-blue-300 rounded-lg shadow-lg overflow-hidden">
+              <button
+                className="w-full text-left px-6 py-4 bg-blue-50 hover:bg-blue-100 transition-colors duration-300 flex justify-between items-center"
+                onClick={() => toggleWeek(index)}
+              >
+                <span className="text-lg font-semibold text-blue-600" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  {week.emoji} {week.title}
+                </span>
+                <span className="text-blue-500 text-xl">{openWeek === index ? '▲' : '▼'}</span>
+              </button>
+              {openWeek === index && (
+                <div className="bg-white p-6 border-t border-blue-200">
+                  <ul className="list-disc list-inside text-gray-700 text-left space-y-2">
+                    {week.content.map((item, itemIndex) => (
+                      <li key={itemIndex} className="text-lg">{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+        <p className="text-lg mt-8 text-gray-600">
+          Every week is packed with fun projects, coding challenges, and interactive lessons to boost your skills and spark your imagination!
+        </p>
+      </section>
         </div>
       </main>
 

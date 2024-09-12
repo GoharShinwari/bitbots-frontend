@@ -45,9 +45,10 @@ export function SigninForm() {
               />
             </div>
           </CardContent>
+          <Link href="/dashboard">
           <CardFooter className="flex flex-col">
             <button className="w-full">Sign In</button>
-          </CardFooter>
+          </CardFooter> </Link>
         </Card>
         <div className="mt-4 text-center text-sm">
           Don&apos;t have an account?
