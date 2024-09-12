@@ -3,6 +3,10 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import bitbotLogo from './images/bitbot_logo.png';
+import Link from 'next/link';
+
+
+
 
 
 interface Week {
@@ -288,8 +292,11 @@ export default function Home() {
   </p>
 </section>
           <section id="enroll" className="w-full max-w-md mx-auto text-center transform transition-all duration-1000 delay-900 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}">
+          <Link href="/signup" passHref>
             <h2 className="text-3xl font-semibold mb-4 text-blue-700"            style={{ fontFamily: 'Poppins, sans-serif' }}
             >Enroll Now</h2>
+            </Link>
+
             <div className="flex justify-center mb-6">
               <Image
                 src={bitbotLogo}
@@ -304,57 +311,9 @@ export default function Home() {
               Start your child&apos;s coding adventure today!
             </p>
           <form>
-            <input
-              type="text"
-              name="parentName"
-              placeholder="Parent's Name"
-              className="w-full px-4 py-2 rounded border"
-              style={{color: 'black'}}
-              value={formData.parentName}
-              onChange={handleChange}
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              className="w-full px-4 py-2 rounded border"
-              style={{color: 'black'}}
-              value={formData.email}
-              onChange={handleChange}
-            />
-            <input
-              type="tel"
-              name="phoneNumber"
-              placeholder="Phone Number"
-              className="w-full px-4 py-2 rounded border"
-              style={{color: 'black'}}
-              value={formData.phoneNumber}
-              onChange={handleChange}
-            />
-            <input
-              type="text"
-              name="childName"
-              placeholder="Child's Name"
-              className="w-full px-4 py-2 rounded border"
-              style={{color: 'black'}}
-              value={formData.childName}
-              onChange={handleChange}
-            />
-            <input
-              type="number"
-              name="childAge"
-              placeholder="Child's Age"
-              className="w-full px-4 py-2 rounded border"
-              style={{color: 'black'}}
-              value={formData.childAge}
-              onChange={handleChange}
-            />
-            <button 
-              type="submit" 
-              className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-300" 
-              onClick={handleSignUp}>
-              Sign Up
-            </button>
+          <Link href="/signin" passHref>
+            Already have an Account?
+            </Link>
           </form>
           </section>
         </div>
