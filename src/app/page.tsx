@@ -1,13 +1,6 @@
 "use client";
-
-import Image from "next/image";
 import { useState, useEffect } from "react";
-import bitbotLogo from './images/bitbot_logo.png';
 import Link from 'next/link';
-
-
-
-
 
 interface Week {
   title: string;
@@ -38,49 +31,6 @@ export default function Home() {
     };
   }, []);
 
-
-    const [formData, setFormData] = useState({
-      parentName: '',
-      email: '',
-      phoneNumber: '',
-      childName: '',
-      childAge: '',
-    });
-  
-    const handleChange = (e: { target: { name: any; value: any; }; }) => {
-      setFormData({
-        ...formData,
-        [e.target.name]: e.target.value,
-      });
-    };
-
-    const handleSignUp = async (event: { preventDefault: () => void; }) => {
-      event.preventDefault(); 
-    
-      try {
-        const response = await fetch('/send-email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            email: formData.email,  
-            message: `Hello ${formData.parentName}, thank you for signing up, ${formData.childName}!`
-          })
-        });
-    
-        if (response.ok) {
-          alert('Email sent successfully!');
-        } else {
-          const errorData = await response.json();
-          console.error('Failed to send email:', errorData);
-          alert(`Failed to send email. Error: ${errorData.message || 'Unknown error'}`);
-        }
-      } catch (error) {
-        console.error('Error sending email:', error);
-        alert(`An error occurred while sending the email`);
-      }
-    };
   
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -88,7 +38,7 @@ export default function Home() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
+  
   const toggleWeek = (weekIndex: number) => {
     setOpenWeek(openWeek === weekIndex ? null : weekIndex);
   };
@@ -184,35 +134,38 @@ export default function Home() {
           </a>
 
           <div className="flex space-x-4 items-center">
-            <a 
-              href="#"
-              className="text-l hover:text-blue-200 transition duration-300"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
-              onClick={(e) => {
-                e.preventDefault(); 
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-            >
-              About
-            </a>
+              <a 
+                href="#"
+                className="text-xl font-medium hover:text-blue-200 transition duration-300"
+                style={{ fontFamily: 'Poppins, sans-serif' }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              >
+                About
+              </a>
 
-            <a 
-              href="#curriculum" 
-              className="text-l hover:text-blue-200 transition duration-300"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
-              onClick={() => scrollToSection('curriculum')}
-            >
-              Curriculum
-            </a>
+              <a 
+                href="#"
+                className="text-xl font-medium hover:text-blue-200 transition duration-300"
+                style={{ fontFamily: 'Poppins, sans-serif' }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('curriculum');
+                }}
+              >
+                Curriculum
+              </a>
 
-            <a 
-              href="#enroll" 
-              className="text-l bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-100 transition duration-300"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
-              onClick={() => scrollToSection('enroll')}
-            >
-              Enroll Now
-            </a>
+              <Link 
+                  href="/signup"
+                  className="text-l bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-100 transition duration-300"
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
+                >
+                  Enroll Now
+                </Link>
+
           </div>
         </div>
         </div>
@@ -223,10 +176,17 @@ export default function Home() {
           <div className="text-center mb-16 transform transition-all duration-1000 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}">
           <h1 className="text-5xl font-bold mb-4 text-blue-800" style={{ fontFamily: 'Poppins, sans-serif' }}>Welcome to BitBots Academy!</h1>   
           <p className="text-xl mb-8 text-gray-600">Empowering kids aged 6-17 with AI-powered coding education</p>
-            <a href="#enroll" className="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-600 transition duration-300">
-              Start Your Coding Journey
-            </a>
-          </div>
+          <Link href="/signup" className="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-600 transition duration-300">
+        Start Your Coding Journey
+      </Link>
+
+      <div className="mt-6">
+        <Link href="/signin" className="text-blue-500 hover:underline text-lg">
+          Already have an account? Sign In
+        </Link>
+      </div>
+      </div>
+      
 
           <section id="about" className={`mb-16 text-center transform transition-all duration-1000 delay-900 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
 
@@ -291,31 +251,6 @@ export default function Home() {
     Each week includes hands-on projects, coding challenges, and interactive lessons to reinforce learning and spark creativity.
   </p>
 </section>
-          <section id="enroll" className="w-full max-w-md mx-auto text-center transform transition-all duration-1000 delay-900 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}">
-          <Link href="/signup" passHref>
-            <h2 className="text-3xl font-semibold mb-4 text-blue-700"            style={{ fontFamily: 'Poppins, sans-serif' }}
-            >Enroll Now</h2>
-            </Link>
-
-            <div className="flex justify-center mb-6">
-              <Image
-                src={bitbotLogo}
-                alt="BitBots Academy Logo"
-                width={250}
-                height={20}
-                priority
-                className="mx-auto"
-              />
-            </div>
-            <p className="text-lg mb-6 text-gray-700">
-              Start your child&apos;s coding adventure today!
-            </p>
-          <form>
-          <Link href="/signin" passHref>
-            Already have an Account?
-            </Link>
-          </form>
-          </section>
         </div>
       </main>
 
