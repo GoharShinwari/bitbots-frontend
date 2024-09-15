@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, Send, Bot } from 'lucide-react';
 
 interface Message {
@@ -8,19 +8,24 @@ interface Message {
 
 const VirtualCodingCoach: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
-    { text: "Hello! I'm your Virtual Coding Coach. How can I help you today?", isUser: false }
+    { text: "Hello! I&apos;m your Virtual Coding Coach. How can I help you today?", isUser: false }
   ]);
   const [input, setInput] = useState('');
+  const endOfMessagesRef = useRef<HTMLDivElement>(null);
 
   const handleSend = () => {
     if (input.trim()) {
-      setMessages([...messages, { text: input, isUser: true }]);
+      setMessages(prev => [...prev, { text: input, isUser: true }]);
       setInput('');
       setTimeout(() => {
         setMessages(prev => [...prev, { text: "I'm a placeholder response. The AI functionality will be implemented later!", isUser: false }]);
       }, 1000);
     }
   };
+
+  useEffect(() => {
+    endOfMessagesRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
   return (
     <div className="ml-64 mt-16 h-[calc(100vh-4rem)] w-[calc(100vw-16rem)] bg-white overflow-hidden flex flex-col">
@@ -37,6 +42,7 @@ const VirtualCodingCoach: React.FC = () => {
             </div>
           </div>
         ))}
+        <div ref={endOfMessagesRef} />
       </div>
       
       <div className="p-4 border-t">

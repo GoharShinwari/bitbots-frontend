@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { ArrowRight, BarChart2, Book, Trophy, Rocket } from 'lucide-react';
+import React, { useState } from "react";
+import { ArrowRight, BarChart2, Book, Trophy, Rocket } from "lucide-react";
 
 const Dashboard: React.FC = () => {
-  const [username, setUsername] = useState('User');
+  const [username, setUsername] = useState("User");
 
   const stats = [
-    { name: 'Courses Started', value: 0, icon: Book },
-    { name: 'Coding Challenges Attempted', value: 0, icon: Trophy },
-    { name: 'Minutes Practiced', value: 0, icon: BarChart2 },
+    { name: "Courses Started", value: 0, icon: Book },
+    { name: "Coding Challenges Attempted", value: 0, icon: Trophy },
+    { name: "Minutes Practiced", value: 0, icon: BarChart2 },
   ];
 
   return (
@@ -17,7 +17,7 @@ const Dashboard: React.FC = () => {
           Welcome to BitBots, {username}!
         </h1>
         <p className="text-blue-500 mb-6">
-          We're excited to have you on board. Let's start your coding journey!
+          We&apos;re excited to have you on board. Let&apos;s start your coding journey!
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">

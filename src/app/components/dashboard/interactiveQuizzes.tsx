@@ -1,5 +1,5 @@
-import React from 'react';
-import { ArrowRight, FileText, Activity, History, Brain, Award, Code } from 'lucide-react';
+import React from "react";
+import { ArrowRight, FileText, Activity, History, Brain, Award, Code } from "lucide-react";
 
 interface QuizCard {
   title: string;
@@ -16,15 +16,15 @@ interface StatItem {
 
 const InteractiveQuizzes: React.FC = () => {
   const quizCards: QuizCard[] = [
-    { title: 'Start a Quiz', description: 'Dive into a range of quizzes tailored to different topics and skill levels. Test your knowledge and learn as you go.', icon: Brain, action: 'Start Quizzes' },
-    { title: 'Practice Exercises', description: 'Engage with additional practice exercises to reinforce what you’ve learned and build your coding skills.', icon: Code, action: 'Practice Now' },
-    { title: 'Review History', description: 'Review past quizzes to see how you’ve performed and revisit questions to better understand the material.', icon: History, action: 'View History' },
+    { title: "Start a Quiz", description: "Dive into a range of quizzes tailored to different topics and skill levels. Test your knowledge and learn as you go.", icon: Brain, action: "Start Quizzes" },
+    { title: "Practice Exercises", description: "Engage with additional practice exercises to reinforce what you&apos;ve learned and build your coding skills.", icon: Code, action: "Practice Now" },
+    { title: "Review History", description: "Review past quizzes to see how you&apos;ve performed and revisit questions to better understand the material.", icon: History, action: "View History" },
   ];
 
   const stats: StatItem[] = [
-    { name: 'Quizzes Completed', value: 0, icon: Award },
-    { name: 'Correct Answers', value: 0, icon: FileText },
-    { name: 'Minutes Practiced', value: 0, icon: Activity },
+    { name: "Quizzes Completed", value: 0, icon: Award },
+    { name: "Correct Answers", value: 0, icon: FileText },
+    { name: "Minutes Practiced", value: 0, icon: Activity },
   ];
 
   return (

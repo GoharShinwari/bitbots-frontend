@@ -14,7 +14,7 @@ const LearningStats: React.FC = () => {
     { name: 'Challenges Solved', icon: Zap },
     { name: 'Current Streak', icon: TrendingUp },
     { name: 'Goals Met', icon: Target },
-    { name: 'Projects Made', icon: Briefcase }, 
+    { name: 'Projects Made', icon: Briefcase },
   ];
 
   return (

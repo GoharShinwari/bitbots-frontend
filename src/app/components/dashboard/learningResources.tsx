@@ -1,5 +1,5 @@
-import React from 'react';
-import { Book, Video, Link, Code, Award, Clock } from 'lucide-react';
+import React from "react";
+import { Book, Video, Link, Code, Award, Clock } from "lucide-react";
 
 interface ResourceCard {
   title: string;
@@ -16,15 +16,15 @@ interface StatItem {
 
 const LearningResources: React.FC = () => {
   const resourceCards: ResourceCard[] = [
-    { title: 'Reading Materials', description: '[Age-specific reading materials will be populated here]', icon: Book, action: 'Start Reading' },
-    { title: 'Video Tutorials', description: '[Age-appropriate video tutorials will be listed here]', icon: Video, action: 'Watch Videos' },
-    { title: 'Interactive Exercises', description: '[Age-tailored interactive exercises will be provided here]', icon: Code, action: 'Try Exercises' },
+    { title: "Reading Materials", description: "[Age-specific reading materials will be populated here]", icon: Book, action: "Start Reading" },
+    { title: "Video Tutorials", description: "[Age-appropriate video tutorials will be listed here]", icon: Video, action: "Watch Videos" },
+    { title: "Interactive Exercises", description: "[Age-tailored interactive exercises will be provided here]", icon: Code, action: "Try Exercises" },
   ];
 
   const stats: StatItem[] = [
-    { name: 'Resources Viewed', value: 0, icon: Award },
-    { name: 'Topics Covered', value: 0, icon: Book },
-    { name: 'Learning Time', value: 0, icon: Clock },
+    { name: "Resources Viewed", value: 0, icon: Award },
+    { name: "Topics Covered", value: 0, icon: Book },
+    { name: "Learning Time", value: 0, icon: Clock },
   ];
 
   return (

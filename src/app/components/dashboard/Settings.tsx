@@ -29,7 +29,6 @@ const Settings: React.FC = () => {
             />
           </div>
 
-
           <div className="bg-blue-50 rounded-lg p-6 shadow-sm">
             <h2 className="text-xl font-semibold text-blue-700 mb-4 flex items-center">
               <Lock className="mr-2 h-6 w-6" />
@@ -67,7 +66,6 @@ const Settings: React.FC = () => {
               <span className="ml-2 text-blue-700">Receive email notifications</span>
             </label>
           </div>
-
 
           <div className="bg-blue-50 rounded-lg p-6 shadow-sm">
             <h2 className="text-xl font-semibold text-blue-700 mb-4 flex items-center">
