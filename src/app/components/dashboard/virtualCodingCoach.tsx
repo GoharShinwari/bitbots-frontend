@@ -8,7 +8,7 @@ interface Message {
 
 const VirtualCodingCoach: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
-    { text: "Hello! I&apos;m your Virtual Coding Coach. How can I help you today?", isUser: false }
+    { text: "Hello! I'm your Virtual Coding Coach. How can I help you today?", isUser: false }
   ]);
   const [input, setInput] = useState('');
   const endOfMessagesRef = useRef<HTMLDivElement>(null);
