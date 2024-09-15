@@ -10,7 +10,7 @@ import RecentActivities from '../components/dashboard/recentActivities';
 import InteractiveQuizzes from '../components/dashboard/interactiveQuizzes';
 import LearningResources from '../components/dashboard/learningResources';
 import YourAchievements from '../components/dashboard/yourAchievements';
-import Settings from '../components/dashboard/settings';
+import Settings from '../components/dashboard/Settings';
 
 const MainPage: React.FC = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -50,12 +50,8 @@ const MainPage: React.FC = () => {
   return (
     <div className="flex h-screen">
       <Sidebar onSelect={handleSectionChange} />
-      <div className="flex flex-col flex-grow ml-64">
         <Topbar />
-        <main className="flex-grow p-6 bg-gray-100">
           {renderContent()}
-        </main>
-      </div>
     </div>
   );
 };
