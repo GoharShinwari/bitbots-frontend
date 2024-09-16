@@ -1,7 +1,10 @@
 "use client";
 
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
-
+import { auth } from "@/app/firebase/config";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import {
   CardTitle,
   CardDescription,
@@ -10,14 +13,29 @@ import {
   CardFooter,
   Card,
 } from "@/components/ui/card";
-
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
 export function SigninForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null); 
+  const router = useRouter();
+
+  const handleSubmit = async (event: { preventDefault: () => void; }) => {
+    event.preventDefault();
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      router.push("/dashboard"); 
+    } catch (err) {
+      setError("Incorrect email or password. Please try again.");
+    }
+  };
+
   return (
     <div className="w-full max-w-md">
-      <form>
+      <form onSubmit={handleSubmit}>
         <Card>
           <CardHeader className="space-y-1">
             <CardTitle className="text-3xl font-bold">Sign In</CardTitle>
@@ -29,10 +47,13 @@ export function SigninForm() {
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
-                id="identifier"
-                name="identifier"
-                type="text"
+                id="email"
+                name="email"
+                type="email"
                 placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
             <div className="space-y-2">
@@ -42,13 +63,20 @@ export function SigninForm() {
                 name="password"
                 type="password"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </div>
+            {error && (
+              <div className="text-red-500 text-center mt-2">
+                {error}
+              </div>
+            )}
           </CardContent>
-          <Link href="/dashboard">
           <CardFooter className="flex flex-col">
-            <button className="w-full">Sign In</button>
-          </CardFooter> </Link>
+          <button className="w-full">Sign In</button>
+          </CardFooter>
         </Card>
         <div className="mt-4 text-center text-sm">
           Don&apos;t have an account?
