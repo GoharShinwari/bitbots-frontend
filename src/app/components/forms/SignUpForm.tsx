@@ -62,7 +62,7 @@ export function SignupForm() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="parentname">Parent's Name</Label>
+              <Label htmlFor="parentname">Parent&apos;s Name</Label>
               <Input
                 id="parentname"
                 name="parentname"
@@ -98,7 +98,7 @@ export function SignupForm() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="childname">Child's Name</Label>
+              <Label htmlFor="childname">Child&apos;s Name</Label>
               <Input
                 id="childname"
                 name="childname"
@@ -110,7 +110,7 @@ export function SignupForm() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="childage">Child's Age</Label>
+              <Label htmlFor="childage">Child&apos;s Age</Label>
               <Input
                 id="childage"
                 name="childage"
