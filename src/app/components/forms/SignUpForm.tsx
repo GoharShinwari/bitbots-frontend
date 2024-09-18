@@ -42,7 +42,7 @@ export function SignupForm() {
 
       // Here you would typically save additional user data (child info, phone) to your database
       // For example: await saveAdditionalUserData(user.uid, { phoneNumber, childName, childAge });
-
+      // 
       router.push("/dashboard");
     } catch (err) {
       setError("Failed to create an account. Please try again.");
