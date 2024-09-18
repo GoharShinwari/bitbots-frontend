@@ -1,23 +1,57 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowRight, BarChart2, Book, Trophy, Rocket } from "lucide-react";
+import { auth } from "@/app/firebase/config";
+import { db } from "@/app/firebase/config";
+import { doc, getDoc } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
 
 const Dashboard: React.FC = () => {
-  const [username, setUsername] = useState("User");
-
-  const stats = [
+  const [user, setUser] = useState<any>(null);
+  const [stats, setStats] = useState([
     { name: "Courses Started", value: 0, icon: Book },
     { name: "Coding Challenges Attempted", value: 0, icon: Trophy },
     { name: "Minutes Practiced", value: 0, icon: BarChart2 },
-  ];
+  ]);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      if (currentUser) {
+        const userDoc = await getDoc(doc(db, "users", currentUser.uid));
+        if (userDoc.exists()) {
+          const userData = userDoc.data();
+          setUser({
+            ...currentUser,
+            childName: userData.childName, // Retrieve childName from Firestore
+            ...userData,
+          });
+          setStats([
+            { name: "Courses Started", value: userData.coursesStarted || 0, icon: Book },
+            { name: "Coding Challenges Attempted", value: userData.challengesAttempted || 0, icon: Trophy },
+            { name: "Minutes Practiced", value: userData.minutesPracticed || 0, icon: BarChart2 },
+          ]);
+        } else {
+          setUser(currentUser);
+        }
+      } else {
+        setUser(null);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="ml-64 mt-16 h-[calc(100vh-4rem)] w-[calc(100vw-16rem)] bg-white overflow-hidden">
       <div className="h-full w-full p-6 flex flex-col">
         <h1 className="text-3xl font-bold text-blue-600 mb-2">
-          Welcome to BitBots, {username}!
+          Welcome to BitBots, {user.childName || "Young Coder!"}!
         </h1>
         <p className="text-blue-500 mb-6">
-          We&apos;re excited to have you on board. Let&apos;s start your coding journey!
+          We're excited to have you on board. Let's continue your coding journey!
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
@@ -34,10 +68,10 @@ const Dashboard: React.FC = () => {
 
         <div className="bg-blue-100 rounded-lg p-6 mb-6">
           <h2 className="text-xl font-semibold text-blue-700 mb-2">
-            Start Your Learning Journey
+            Continue Your Learning Journey
           </h2>
           <p className="text-blue-600 mb-4">
-            Choose your first course and begin your adventure in coding!
+            Pick up where you left off or start a new course!
           </p>
           <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors flex items-center">
             Explore Courses
@@ -59,13 +93,13 @@ const Dashboard: React.FC = () => {
           </div>
           <div className="bg-blue-50 rounded-lg p-6">
             <h2 className="text-xl font-semibold text-blue-700 mb-2">
-              Set Your Goals
+              Update Your Goals
             </h2>
             <p className="text-blue-600 mb-4">
-              Define your learning objectives to personalize your experience.
+              Review and adjust your learning objectives to stay on track.
             </p>
             <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors flex items-center">
-              Set Goals
+              Update Goals
               <Rocket className="ml-2 h-4 w-4" />
             </button>
           </div>

@@ -1,18 +1,13 @@
-"use client";
+"use client"; // Add this line at the very top of the file
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { auth } from "@/app/firebase/config";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import {
-  CardTitle,
-  CardDescription,
-  CardHeader,
-  CardContent,
-  CardFooter,
-  Card,
-} from "@/components/ui/card";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "@/app/firebase/config";
+import { CardTitle, CardDescription, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
@@ -30,19 +25,24 @@ export function SignupForm() {
     event.preventDefault();
 
     try {
-      // Create user with email and password
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Update user profile with additional information
       await updateProfile(user, {
-        displayName: parentName,
-        // Note: phoneNumber can't be set directly here, you might need to store it separately
+        displayName: parentName, 
       });
 
-      // Here you would typically save additional user data (child info, phone) to your database
-      // For example: await saveAdditionalUserData(user.uid, { phoneNumber, childName, childAge });
-      // 
+      await setDoc(doc(db, "users", user.uid), {
+        parentName,
+        phoneNumber,
+        childName,
+        childAge,
+        uid: user.uid,
+        coursesStarted: 0, 
+        challengesAttempted: 0,
+        minutesPracticed: 0,
+      });
+
       router.push("/dashboard");
     } catch (err) {
       setError("Failed to create an account. Please try again.");
