@@ -40,7 +40,20 @@ export function SignupForm() {
         uid: user.uid,
         coursesStarted: 0, 
         challengesAttempted: 0,
-        minutesPracticed: 0,
+        challengesSolved: 0,
+        overallMinutesPracticed: 0,
+        achievements: 0,
+        averageScore: 0,
+        currentStreak: 0,
+        goalsMet: 0,
+        projectsMade: 0,
+        quizzesCompleted: 0,
+        quizzesMinutes: 0,
+        correctAnswers: 0,
+        resourcesViewed: 0,
+        topicsCovered: 0,
+        learningMinutes: 0,
+
       });
 
       router.push("/dashboard");
