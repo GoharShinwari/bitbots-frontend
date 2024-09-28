@@ -52,7 +52,7 @@ const MainPage: React.FC = () => {
       <Sidebar onSelect={handleSectionChange} />
         <Topbar onSelect={handleSectionChange} />
           {renderContent()}
-    </div>
+    </div> //Hello
   );
 };
 
