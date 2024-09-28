@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ArrowRight, BarChart2, Book, Trophy, Rocket } from "lucide-react";
+import { ArrowRight, BarChart2, Book, Trophy, Rocket, BookOpenText } from "lucide-react";
 import { auth } from "@/app/firebase/config";
 import { db } from "@/app/firebase/config";
 import { doc, getDoc, updateDoc, increment } from "firebase/firestore";
@@ -91,8 +91,9 @@ const Dashboard: React.FC = () => {
             <p className="text-blue-600 mb-4">
               Read about individuals who have achieved great things through coding and get motivated.
             </p>
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">
+            <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors flex items-center">
               Read Stories
+              <BookOpenText className="ml-2 h-4 w-4" />
             </button>
           </div>
           <div className="bg-blue-50 rounded-lg p-6">

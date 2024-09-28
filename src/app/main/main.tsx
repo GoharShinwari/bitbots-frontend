@@ -50,7 +50,7 @@ const MainPage: React.FC = () => {
   return (
     <div className="flex h-screen">
       <Sidebar onSelect={handleSectionChange} />
-        <Topbar />
+        <Topbar onSelect={handleSectionChange} />
           {renderContent()}
     </div>
   );

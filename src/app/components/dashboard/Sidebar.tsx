@@ -19,22 +19,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ onSelect }) => {
           <Home className="mr-3" /> Dashboard
         </a>
         <a
-          onClick={() => onSelect("learningStats")}
-          className="flex items-center px-6 py-3 text-gray-700 hover:bg-blue-50 cursor-pointer"
-        >
-          <BarChart className="mr-3" /> Learning Stats
-        </a>
-        <a
           onClick={() => onSelect("virtualCodingCoach")}
           className="flex items-center px-6 py-3 text-gray-700 hover:bg-blue-50 cursor-pointer"
         >
           <User className="mr-3" /> Virtual Coding Coach
-        </a>
-        <a
-          onClick={() => onSelect("recentActivities")}
-          className="flex items-center px-6 py-3 text-gray-700 hover:bg-blue-50 cursor-pointer"
-        >
-          <List className="mr-3" /> Recent Activities
         </a>
         <a
           onClick={() => onSelect("interactiveQuizzes")}
@@ -47,6 +35,18 @@ export const Sidebar: React.FC<SidebarProps> = ({ onSelect }) => {
           className="flex items-center px-6 py-3 text-gray-700 hover:bg-blue-50 cursor-pointer"
         >
           <Book className="mr-3" /> Learning Resources
+        </a>
+        <a
+          onClick={() => onSelect("recentActivities")}
+          className="flex items-center px-6 py-3 text-gray-700 hover:bg-blue-50 cursor-pointer"
+        >
+          <List className="mr-3" /> Recent Activities
+        </a>
+        <a
+          onClick={() => onSelect("learningStats")}
+          className="flex items-center px-6 py-3 text-gray-700 hover:bg-blue-50 cursor-pointer"
+        >
+          <BarChart className="mr-3" /> Learning Stats
         </a>
         <a
           onClick={() => onSelect("yourAchievements")}
