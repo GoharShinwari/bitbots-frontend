@@ -71,8 +71,9 @@ export function SignupForm() {
             <CardHeader className="space-y-1 bg-blue-600 text-white rounded-t-lg">
               <CardTitle className="text-3xl font-bold">Join BitBots Academy</CardTitle>
               <CardDescription className="text-blue-100">
-                Start your child's coding adventure today!
-              </CardDescription>
+  Start your child&apos;s coding adventure today!
+</CardDescription>
+
             </CardHeader>
             <CardContent className="space-y-4 pt-6">
               <div className="space-y-2">
