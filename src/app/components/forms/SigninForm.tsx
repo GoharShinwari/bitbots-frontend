@@ -33,7 +33,7 @@ export function SigninForm() {
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/2 bg-blue-600 text-white p-8 rounded-l-lg">
             <h2 className="text-3xl font-bold mb-4">Welcome Back to BitBots Academy</h2>
-            <p className="mb-4">Continue your child's coding adventure and unlock new skills!</p>
+            <p className="mb-4">Continue your child&apos;s coding adventure and unlock new skills!</p>
             <ul className="list-disc list-inside space-y-2">
               <li>Access personalized learning paths</li>
               <li>Track progress and achievements</li>
@@ -94,7 +94,7 @@ export function SigninForm() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>
               <div className="text-center text-sm text-gray-600">
-                Don't have an account?
+                Don&apos;t have an account?
                 <Link className="text-blue-600 hover:underline ml-1 font-medium" href="/signup">
                   Sign Up
                 </Link>

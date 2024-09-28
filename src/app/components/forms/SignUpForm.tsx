@@ -10,7 +10,7 @@ import { db } from "@/app/firebase/config";
 import { CardTitle, CardDescription, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { ArrowRight, User, Mail, Phone, Baby, Calendar, Lock } from "lucide-react"; // Ensure lucide-react is imported for icons
+import { ArrowRight, User, Mail, Phone, Baby, Calendar, Lock } from "lucide-react"; 
 
 export function SignupForm() {
   const [parentName, setParentName] = useState("");
@@ -71,13 +71,13 @@ export function SignupForm() {
             <CardHeader className="space-y-1 bg-blue-600 text-white rounded-t-lg">
               <CardTitle className="text-3xl font-bold">Join BitBots Academy</CardTitle>
               <CardDescription className="text-blue-100">
-  Start your child&apos;s coding adventure today!
-</CardDescription>
+                Start your child&apos;s coding adventure today!
+              </CardDescription>
 
             </CardHeader>
             <CardContent className="space-y-4 pt-6">
               <div className="space-y-2">
-                <Label htmlFor="parentname" className="text-blue-600 font-semibold">Parent's Name</Label>
+                <Label htmlFor="parentname" className="text-blue-600 font-semibold">Parent&apos;s Name</Label>
                 <div className="relative">
                   <Input
                     id="parentname"
@@ -125,7 +125,7 @@ export function SignupForm() {
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="childname" className="text-blue-600 font-semibold">Child's Name</Label>
+                <Label htmlFor="childname" className="text-blue-600 font-semibold">Child&apos;s Name</Label>
                 <div className="relative">
                   <Input
                     id="childname"
@@ -141,7 +141,7 @@ export function SignupForm() {
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="childage" className="text-blue-600 font-semibold">Child's Age</Label>
+                <Label htmlFor="childage" className="text-blue-600 font-semibold">Child&apos;s Age</Label>
                 <div className="relative">
                   <Input
                     id="childage"
