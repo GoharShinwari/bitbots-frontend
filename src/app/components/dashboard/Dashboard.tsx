@@ -4,6 +4,8 @@ import { auth } from "@/app/firebase/config";
 import { db } from "@/app/firebase/config";
 import { doc, getDoc, updateDoc, increment } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
+import Link from 'next/link';
+
 
 const Dashboard: React.FC = () => {
   const [user, setUser] = useState<any>(null);
@@ -75,12 +77,16 @@ const Dashboard: React.FC = () => {
           <p className="text-blue-600 mb-4">
             Pick up where you left off or start a new course!
           </p>
-          <button
-            className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors flex items-center"
+          
+
+          
+          <Link 
+          href="/courses" 
+        className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors flex items-center"
           >
-            Explore Courses
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </button>
+        Explore Courses
+        </Link>
+
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-grow">

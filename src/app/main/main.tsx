@@ -12,6 +12,8 @@ import LearningResources from '../components/dashboard/learningResources';
 import YourAchievements from '../components/dashboard/yourAchievements';
 import Settings from '../components/dashboard/Settings';
 
+
+
 const MainPage: React.FC = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [selectedSection, setSelectedSection] = useState<string>("dashboard");
@@ -47,6 +49,8 @@ const MainPage: React.FC = () => {
     }
   };
 
+  
+
   return (
     <div className="flex h-screen">
       <Sidebar onSelect={handleSectionChange} />
@@ -57,3 +61,6 @@ const MainPage: React.FC = () => {
 };
 
 export default MainPage;
+
+
+
