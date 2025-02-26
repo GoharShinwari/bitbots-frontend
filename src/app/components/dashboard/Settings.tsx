@@ -6,7 +6,7 @@ const Settings: React.FC = () => {
   const [darkMode, setDarkMode] = useState(false); 
   
   return (
-    <div className="ml-64 mt-16 h-[calc(100vh-4rem)] w-[calc(100vw-16rem)] bg-white overflow-auto">
+    <div className="ml-0 mt-0 h-[calc(100vh-4rem)] w-[calc(100vw-16rem)] bg-white overflow-auto">
       <div className="h-full w-full p-8 flex flex-col">
         <h1 className="text-3xl font-bold text-blue-600 mb-2 flex items-center">
           <User className="mr-2 h-8 w-8" />

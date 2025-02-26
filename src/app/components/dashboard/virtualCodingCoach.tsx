@@ -26,11 +26,11 @@ const VirtualCodingCoach: React.FC = () => {
   useEffect(() => {
     endOfMessagesRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
-
+    {/* Messed up the edges here can fix at ml-0 and mt-0 for all */}
   return (
-    <div className="ml-64 mt-16 h-[calc(100vh-4rem)] w-[calc(100vw-16rem)] bg-white overflow-hidden flex flex-col">
+    <div className="ml-0 mt-0 h-[calc(100vh-4rem)] w-[calc(100vw-16rem)] bg-white overflow-auto">
       <div className="bg-blue-600 p-4 text-white flex items-center">
-        <Bot className="mr-2 h-6 w-6" />
+        <Bot className="mr-9 h-6 w-6" />
         <h1 className="text-2xl font-bold">Virtual Coding Coach</h1>
       </div>
       
